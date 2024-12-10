@@ -7,9 +7,13 @@
 
 import SwiftUI
 import SwiftData
+import FirebaseCore
 
 @main
 struct TodoListApp: App {
+    init(){
+        FirebaseApp.configure()
+    }
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             Item.self,
@@ -25,7 +29,7 @@ struct TodoListApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView()
         }
         .modelContainer(sharedModelContainer)
     }
